@@ -30,7 +30,7 @@ A documentaçõe de todas as ações suportadas e exemplo de requisições estã
 
 ### Arquivos
 
-O `chuugakkou_kanji_example_sentences_for_anki.txt` são mais de 2000 questões de Kanji que coletei via web scraping. O `chuugakkou_kanji_sentence_cards.json` é a versão JSON desse arquivo com um campo a mais (usado num outro script).
+O `chuugakkou_kanji_sentence_cards.json` são mais de 2000 questões de Kanji que coletei via web scraping, já incluído sentença com furigana.
 
 O arquivo da variável `KANJI_WORDS_DICT_JSON_FILE_PATH` precisa ser baixada [aqui](https://foosoft.net/projects/yomichan/#:~:text=jmdict_dutch.zip-,jmdict_english.zip,-jmdict_french.zip).
 
@@ -38,16 +38,4 @@ O arquivo da variável `KANJI_DICT_JSON_FILE_PATH` é uma versão [deste arquivo
 
 ### Scripts
 
-Inicialmente eu queria adicionar em cada card a frase sem furigana e frase com furigana (e também uma tag com o Kanji que estava sendo testado naquele card). Para isso foi desenvolvido o script `ScriptAddKanjiNotesWithJustSentenceAndFurigana.java`.
-
-![ ](doc/readme_004.jpg)
-
-Mas conforme fui estudando os decks vi que eu gastava muito tempo pesquisando o significado, OnYomis, KunYomis dos kanjis e palavras. Então, pensei que seria muito útil se eu incluísse todas essas informações no próprio flashcard. Para isso foi desenvolvido o script `ScriptUpdateKanjiNotesToAddKanjiAndWordsMeaning.java`, que existe várias lógicas levemente complexas utilizando fontes de outros dicionários para montar os notes nesse formato:
-
-![ ](doc/readme_001.jpg)
-
-Esse formato atendeu perfeitamente as minhas demandas de estudo de Kanji.
-
-O script `ScriptAddAwsCertificationCards.java` adiciona flashcards simples de pergunta e resposta sobre a certificação AWS. Os dados são retirados do arquivo `aws_certification_book_questions.json` que foi montado fazendo scraping em livros PDF sobre certificação Java.
-
-![ ](doc/readme_002.jpg)
+Os scripts `ScriptAddKanjiCardsWithMeanings` e `ScriptUpdateKanjiNotesToAddKanjiAndWordsMeaning` foram os primeiros scripts que criei. Não usam o `AnkiConnectService`, por isso a manutenibilidade está um pouco baixa. Os outros scripts estão mais fáceis de mexer.

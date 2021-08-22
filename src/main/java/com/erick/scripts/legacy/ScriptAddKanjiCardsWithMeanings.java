@@ -1,4 +1,4 @@
-package com.erick.scripts;
+package com.erick.scripts.legacy;
 
 import com.erick.model.AnkiEntityAddNote;
 import com.erick.model.AnkiParamsAddNotes;
@@ -6,10 +6,12 @@ import com.erick.model.AnkiRequestAddNotes;
 import com.erick.model.KanjiSentenceCard;
 import com.erick.util.KanjiDict;
 import com.erick.util.KanjiWordDict;
+import com.google.common.io.Resources;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+import lombok.SneakyThrows;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -22,13 +24,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.erick.constants.AnkiConnectActions.ANKI_CONNECT_URL;
+import static com.erick.constants.AnkiConnectConstants.ANKI_CONNECT_URL;
 import static com.erick.util.KanjiUtil.getAllKanjisInSentence;
 import static com.erick.util.StringUtil.isBlank;
+import static com.google.common.base.Charsets.UTF_8;
+import static com.google.common.io.Resources.getResource;
 import static java.lang.String.*;
 import static java.util.stream.Collectors.toList;
 
-
+@Deprecated
 public class ScriptAddKanjiCardsWithMeanings {
     private static final Type LIST_LIST_TYPE = new TypeToken<List<List<Object>>>() {
     }.getType();
@@ -109,9 +113,10 @@ public class ScriptAddKanjiCardsWithMeanings {
         return new KanjiWordDict(allKanjiWordEntries);
     }
 
-    private List<KanjiSentenceCard> loadKanjiSentences() throws FileNotFoundException {
-        var reader = new JsonReader(new FileReader(KANJI_SENTENCES_JSON_FILE_PATH));
-        return GSON.fromJson(reader, KANJI_SENTENCE_CARDS_TYPE);
+    @SneakyThrows
+    private List<KanjiSentenceCard> loadKanjiSentences() {
+        var json = Resources.toString(getResource(KANJI_SENTENCES_JSON_FILE_PATH), UTF_8);
+        return GSON.fromJson(json, KANJI_SENTENCE_CARDS_TYPE);
     }
 
     private List<Character> getAllKanjisWithGradeHigherThan(List<Character> kanjis, List<Character> exceptThisKanjis, List<String> targetGrades) {

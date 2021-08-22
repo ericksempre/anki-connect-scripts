@@ -3,8 +3,10 @@ package com.erick.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
-public class AnkiParamsUpdateNoteFields {
-    public AnkiEntityUpdateNoteField note;
+public class AnkiParamsNoteIds {
+    public List<Long> notes;
 }

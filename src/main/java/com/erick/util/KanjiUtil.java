@@ -1,9 +1,12 @@
 package com.erick.util;
 
+import lombok.experimental.UtilityClass;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public final class KanjiUtil {
+@UtilityClass
+public class KanjiUtil {
     private static final int UNICODE_OF_FIRST_KANJI_CHARACTER_IN_CJK = 19968;
     private static final int UNICODE_OF_LAST_KANJI_CHARACTER_IN_CJK = 40879;
 

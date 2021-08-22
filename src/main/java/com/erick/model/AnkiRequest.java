@@ -1,8 +1,14 @@
 package com.erick.model;
 
-class AnkiRequest {
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class AnkiRequest {
     public  String action;
-    public  String version = "6";
+
+    public String version = "6";
 
     public AnkiRequest(String action) {
         this.action = action;

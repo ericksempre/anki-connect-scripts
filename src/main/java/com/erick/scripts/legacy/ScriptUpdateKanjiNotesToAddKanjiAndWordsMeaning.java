@@ -1,6 +1,6 @@
-package com.erick.scripts;
+package com.erick.scripts.legacy;
 
-import static com.erick.constants.AnkiConnectActions.ANKI_CONNECT_URL;
+import static com.erick.constants.AnkiConnectConstants.ANKI_CONNECT_URL;
 import static com.erick.util.KanjiUtil.getAllKanjisInSentence;
 import static com.erick.util.StringUtil.isBlank;
 import static java.lang.String.format;
@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import com.erick.model.AnkiEntityUpdateNoteField;
 import com.erick.model.AnkiParamsFindNotes;
-import com.erick.model.AnkiParamsNotesInfo;
+import com.erick.model.AnkiParamsNoteIds;
 import com.erick.model.AnkiParamsUpdateNoteFields;
 import com.erick.model.AnkiRequestFindNotes;
 import com.erick.model.AnkiRequestNotesInfo;
@@ -36,7 +36,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 
-
+@Deprecated
 public class ScriptUpdateKanjiNotesToAddKanjiAndWordsMeaning {
     private static final Type LIST_LIST_TYPE = new TypeToken<List<List<Object>>>() {
     }.getType();
@@ -64,7 +64,7 @@ public class ScriptUpdateKanjiNotesToAddKanjiAndWordsMeaning {
                 .build();
         var response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         var ankiNoteIds = GSON.fromJson(response.body(), AnkiResultFindNotes.class).result;
-        var ankiParamsNotesInfo = new AnkiParamsNotesInfo(ankiNoteIds);
+        var ankiParamsNotesInfo = new AnkiParamsNoteIds(ankiNoteIds);
         var ankiRequestNotesInfo = new AnkiRequestNotesInfo(ankiParamsNotesInfo);
         var request2 = HttpRequest.newBuilder()
                 .uri(URI.create(ANKI_CONNECT_URL))
