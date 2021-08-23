@@ -18,6 +18,6 @@ public class AnkiEntityNoteInfo {
 
     @Override
     public String toString() {
-        return String.valueOf(fields);
+        return String.valueOf(tags);
     }
 }

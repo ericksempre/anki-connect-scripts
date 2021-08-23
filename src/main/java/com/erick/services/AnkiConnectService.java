@@ -13,7 +13,12 @@ public class AnkiConnectService {
     private final AnkiConnectClient client;
 
     public List<AnkiEntityNoteInfo> findNewNotes(String deck) {
-        var query = format("deck:%s is:new", deck);
+        var query = format("deck:%s is:new -is:suspended", deck);
+        return findNotes(query);
+    }
+
+    public List<AnkiEntityNoteInfo> findNotNewNotes(String deck) {
+        var query = format("deck:%s -is:new -is:suspended", deck);
         return findNotes(query);
     }
 

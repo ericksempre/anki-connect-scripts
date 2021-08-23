@@ -16,6 +16,7 @@ public class Run {
                 .decoder(new GsonDecoder())
                 .target(AnkiConnectClient.class, ANKI_CONNECT_URL);
 
-        new ScriptReOrderDeckByKanjiFrequency(new AnkiConnectService(client)).run();
+        var service = new AnkiConnectService(client);
+//        new ScriptReOrderDeckByKanjiFrequency(service).run();
     }
 }
