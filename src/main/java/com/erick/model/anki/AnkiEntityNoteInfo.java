@@ -1,7 +1,6 @@
-package com.erick.model;
+package com.erick.model.anki;
 
 import lombok.Data;
-import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

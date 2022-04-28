@@ -1,7 +1,7 @@
 package com.erick.scripts;
 
-import com.erick.model.AnkiEntityAddNote;
-import com.erick.model.BookQuestion;
+import com.erick.model.anki.AnkiEntityAddNote;
+import com.erick.model.BookQuestionDTO;
 import com.erick.services.AnkiConnectService;
 import com.google.common.io.Resources;
 import com.google.gson.Gson;
@@ -20,7 +20,7 @@ import static com.google.common.io.Resources.getResource;
 
 @RequiredArgsConstructor
 public class ScriptAddAwsCertificationCards {
-    private static final Type BOOK_QUESTIONS_TYPE = new TypeToken<Map<String, List<BookQuestion>>>() {
+    private static final Type BOOK_QUESTIONS_TYPE = new TypeToken<Map<String, List<BookQuestionDTO>>>() {
     }.getType();
     private static final String AWS_CERTIFICATION_QUESTIONS_JSON_FILE_PATH = "aws_certification_book_questions.json";
     private static final String ANKI_DECK_NAME = "AWS Certification";
@@ -29,7 +29,7 @@ public class ScriptAddAwsCertificationCards {
     private final Gson GSON = buildGson();
     private final AnkiConnectService service;
 
-    private Map<String, List<BookQuestion>> kanjiSentences;
+    private Map<String, List<BookQuestionDTO>> kanjiSentences;
 
     public void run() {
         kanjiSentences = loadAwsCertificationBookQuestions();
@@ -45,7 +45,7 @@ public class ScriptAddAwsCertificationCards {
     }
 
     @SneakyThrows
-    private Map<String, List<BookQuestion>> loadAwsCertificationBookQuestions() {
+    private Map<String, List<BookQuestionDTO>> loadAwsCertificationBookQuestions() {
         var json = Resources.toString(getResource(AWS_CERTIFICATION_QUESTIONS_JSON_FILE_PATH), UTF_8);
         return GSON.fromJson(json, BOOK_QUESTIONS_TYPE);
     }

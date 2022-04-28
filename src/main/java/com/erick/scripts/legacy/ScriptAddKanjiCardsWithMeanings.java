@@ -1,9 +1,9 @@
 package com.erick.scripts.legacy;
 
-import com.erick.model.AnkiEntityAddNote;
-import com.erick.model.AnkiParamsAddNotes;
-import com.erick.model.AnkiRequestAddNotes;
-import com.erick.model.KanjiSentenceCard;
+import com.erick.model.anki.AnkiEntityAddNote;
+import com.erick.model.anki.AnkiParamsAddNotes;
+import com.erick.model.anki.AnkiRequestAddNotes;
+import com.erick.model.KanjiSentenceCardDTO;
 import com.erick.util.KanjiDict;
 import com.erick.util.KanjiWordDict;
 import com.google.common.io.Resources;
@@ -36,7 +36,7 @@ import static java.util.stream.Collectors.toList;
 public class ScriptAddKanjiCardsWithMeanings {
     private static final Type LIST_LIST_TYPE = new TypeToken<List<List<Object>>>() {
     }.getType();
-    private static final Type KANJI_SENTENCE_CARDS_TYPE = new TypeToken<List<KanjiSentenceCard>>() {
+    private static final Type KANJI_SENTENCE_CARDS_TYPE = new TypeToken<List<KanjiSentenceCardDTO>>() {
     }.getType();
     private static final String KANJI_DICT_JSON_FILE_PATH = "C:\\coding\\kanjidic_english_modified\\kanji_bank_1.json";
     private static final String KANJI_WORDS_DICT_JSON_FILE_PATH = "D:\\coding\\jmdict-english\\term_bank_%d.json";
@@ -52,7 +52,7 @@ public class ScriptAddKanjiCardsWithMeanings {
 
     private KanjiDict kanjiDict;
     private KanjiWordDict kanjiWordDict;
-    private List<KanjiSentenceCard> kanjiSentences;
+    private List<KanjiSentenceCardDTO> kanjiSentences;
 
     public void run() throws Exception {
         kanjiDict = loadKanjiDict();
@@ -114,7 +114,7 @@ public class ScriptAddKanjiCardsWithMeanings {
     }
 
     @SneakyThrows
-    private List<KanjiSentenceCard> loadKanjiSentences() {
+    private List<KanjiSentenceCardDTO> loadKanjiSentences() {
         var json = Resources.toString(getResource(KANJI_SENTENCES_JSON_FILE_PATH), UTF_8);
         return GSON.fromJson(json, KANJI_SENTENCE_CARDS_TYPE);
     }

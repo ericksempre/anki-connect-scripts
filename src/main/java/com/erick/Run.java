@@ -1,6 +1,7 @@
 package com.erick;
 
 import com.erick.clients.AnkiConnectClient;
+import com.erick.scripts.ScriptAddChuugakkouKanjiMeaningsAndExampleWords;
 import com.erick.scripts.ScriptReOrderDeckByKanjiFrequency;
 import com.erick.services.AnkiConnectService;
 import feign.Feign;
@@ -17,6 +18,6 @@ public class Run {
                 .target(AnkiConnectClient.class, ANKI_CONNECT_URL);
 
         var service = new AnkiConnectService(client);
-//        new ScriptReOrderDeckByKanjiFrequency(service).run();
+        new ScriptAddChuugakkouKanjiMeaningsAndExampleWords(service).run();
     }
 }

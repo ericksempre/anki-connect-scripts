@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class KanjiSentenceCard {
+public class KanjiSentenceCardDTO {
     public String kanji = "";
     public String sentence = "";
     public String sentenceWithAnkiStyleFurigana = "";

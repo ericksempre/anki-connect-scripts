@@ -1,4 +1,4 @@
-package com.erick.model;
+package com.erick.model.anki;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

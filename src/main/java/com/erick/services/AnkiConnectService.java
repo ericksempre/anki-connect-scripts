@@ -1,7 +1,15 @@
 package com.erick.services;
 
 import com.erick.clients.AnkiConnectClient;
-import com.erick.model.*;
+import com.erick.model.anki.AnkiEntityAddNote;
+import com.erick.model.anki.AnkiEntityNoteInfo;
+import com.erick.model.anki.AnkiParamsAddNotes;
+import com.erick.model.anki.AnkiParamsFindNotes;
+import com.erick.model.anki.AnkiParamsNoteIds;
+import com.erick.model.anki.AnkiRequestAddNotes;
+import com.erick.model.anki.AnkiRequestDeleteNotes;
+import com.erick.model.anki.AnkiRequestFindNotes;
+import com.erick.model.anki.AnkiRequestNotesInfo;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;

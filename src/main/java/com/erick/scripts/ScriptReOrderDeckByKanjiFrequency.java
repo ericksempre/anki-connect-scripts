@@ -1,8 +1,8 @@
 package com.erick.scripts;
 
-import com.erick.model.AnkiEntityAddNote;
-import com.erick.model.AnkiEntityNoteInfo;
-import com.erick.model.AnkiEntityNoteInfoField;
+import com.erick.model.anki.AnkiEntityAddNote;
+import com.erick.model.anki.AnkiEntityNoteInfo;
+import com.erick.model.anki.AnkiEntityNoteInfoField;
 import com.erick.services.AnkiConnectService;
 import com.google.common.io.Resources;
 import com.google.gson.Gson;

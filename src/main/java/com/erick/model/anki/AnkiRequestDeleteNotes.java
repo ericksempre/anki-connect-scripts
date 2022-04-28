@@ -1,10 +1,9 @@
-package com.erick.model;
+package com.erick.model.anki;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import static com.erick.constants.AnkiConnectConstants.DELETE_NOTES;
-import static com.erick.constants.AnkiConnectConstants.NOTES_INFO;
 
 @Getter
 @Setter
