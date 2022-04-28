@@ -28,14 +28,8 @@ O AnkiConnect disponibiliza APIs HTTP para executar inúmeras ações no Anki. S
 
 A documentaçõe de todas as ações suportadas e exemplo de requisições estão documentadas no [repositório GitHub do AnkiConnect](https://github.com/FooSoft/anki-connect/#supported-actions).
 
-### Arquivos
-
-O `chuugakkou_kanji_sentence_cards.json` são mais de 2000 questões de Kanji que coletei via web scraping, já incluído sentença com furigana.
+### Observação
 
 O arquivo da variável `KANJI_WORDS_DICT_JSON_FILE_PATH` precisa ser baixada [aqui](https://foosoft.net/projects/yomichan/#:~:text=jmdict_dutch.zip-,jmdict_english.zip,-jmdict_french.zip).
 
 O arquivo da variável `KANJI_DICT_JSON_FILE_PATH` é uma versão [deste arquivo](https://foosoft.net/projects/yomichan/#:~:text=kanjidic_english.zip) que modifiquei removendo OnYomis e KunYomis que estão fora do Jouyou. Está zipado no arquivo `kanjidic_english_modified.zip`.
-
-### Scripts
-
-Os scripts `ScriptAddKanjiCardsWithMeanings` e `ScriptUpdateKanjiNotesToAddKanjiAndWordsMeaning` foram os primeiros scripts que criei. Não usam o `AnkiConnectService`, por isso a manutenibilidade está um pouco baixa. Os outros scripts estão mais fáceis de mexer.
