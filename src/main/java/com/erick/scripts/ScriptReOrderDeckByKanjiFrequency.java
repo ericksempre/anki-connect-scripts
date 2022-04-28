@@ -14,6 +14,7 @@ import lombok.SneakyThrows;
 import java.lang.reflect.Type;
 import java.util.*;
 
+import static com.erick.util.GsonUtil.buildGson;
 import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.io.Resources.getResource;
 import static java.util.stream.Collectors.toList;
@@ -23,7 +24,7 @@ public class ScriptReOrderDeckByKanjiFrequency {
     private static final Type MAP_SRING_LONG_TYPE = new TypeToken<Map<String, Long>>() {
     }.getType();
     private static final String DECK_NAME = "中学校の漢字";
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson GSON = buildGson();
 
     private final AnkiConnectService service;
 

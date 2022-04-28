@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.erick.constants.AnkiConnectConstants.ANKI_CONNECT_URL;
+import static com.erick.util.GsonUtil.buildGson;
 import static com.erick.util.KanjiUtil.getAllKanjisInSentence;
 import static com.erick.util.StringUtil.isBlank;
 import static com.google.common.base.Charsets.UTF_8;
@@ -48,7 +49,7 @@ public class ScriptAddKanjiCardsWithMeanings {
     public static final String ANKI_MODEL_NAME = "Chuugakkou Japanese";
 
     private final HttpClient httpClient = HttpClient.newHttpClient();
-    private final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private final Gson GSON = buildGson();
 
     private KanjiDict kanjiDict;
     private KanjiWordDict kanjiWordDict;

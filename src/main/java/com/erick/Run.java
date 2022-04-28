@@ -16,7 +16,6 @@ public class Run {
                 .encoder(new GsonEncoder())
                 .decoder(new GsonDecoder())
                 .target(AnkiConnectClient.class, ANKI_CONNECT_URL);
-
         var service = new AnkiConnectService(client);
         new ScriptAddChuugakkouKanjiMeaningsAndExampleWords(service).run();
     }

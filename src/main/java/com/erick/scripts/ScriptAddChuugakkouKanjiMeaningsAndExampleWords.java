@@ -1,5 +1,6 @@
 package com.erick.scripts;
 
+import static com.erick.util.GsonUtil.buildGson;
 import static java.util.stream.Collectors.summarizingDouble;
 import static java.util.stream.Collectors.toList;
 
@@ -24,7 +25,7 @@ import lombok.SneakyThrows;
 public class ScriptAddChuugakkouKanjiMeaningsAndExampleWords {
   private static final String DECK_NAME = "中学校の漢字【改】";
   private static final String MODEL_NAME = "Chuugakkou no Kanji Kai";
-  private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+  private static final Gson GSON = buildGson();
   private static final Type KANJI_LIST_TYPE = new TypeToken<List<KanjiDTO>>(){}.getType();
 
   private final AnkiConnectService service;

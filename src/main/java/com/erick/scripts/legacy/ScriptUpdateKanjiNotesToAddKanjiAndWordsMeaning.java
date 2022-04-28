@@ -1,6 +1,7 @@
 package com.erick.scripts.legacy;
 
 import static com.erick.constants.AnkiConnectConstants.ANKI_CONNECT_URL;
+import static com.erick.util.GsonUtil.buildGson;
 import static com.erick.util.KanjiUtil.getAllKanjisInSentence;
 import static com.erick.util.StringUtil.isBlank;
 import static java.lang.String.format;
@@ -48,7 +49,7 @@ public class ScriptUpdateKanjiNotesToAddKanjiAndWordsMeaning {
     private static final String WORD_MEANING_SUB_FIELD_TEMPLATE = "<span class=\"word-meaning-meaning\">${WORD_MEANING_INDEX}. ${WORD_MEANING}</span><br>";
 
     private final HttpClient httpClient = HttpClient.newHttpClient();
-    private final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private final Gson GSON = buildGson();
 
     private KanjiDict kanjiDict;
     private KanjiWordDict kanjiWordDict;
