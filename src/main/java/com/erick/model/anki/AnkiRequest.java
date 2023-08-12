@@ -8,7 +8,7 @@ import lombok.Setter;
 public class AnkiRequest {
     public  String action;
 
-    public String version = "6";
+    public Integer version = 6;
 
     public AnkiRequest(String action) {
         this.action = action;
